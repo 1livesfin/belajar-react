@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Geometri Lingkaran</title>
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    function Lingkaran() {
+      const [r, setR] = React.useState(0);
+
+      return (
+        <div>
+          <h2>Luas Lingkaran</h2>
+          <input type="number" onChange={e => setR(e.target.value)} />
+          <p>Hasil: {3.14 * r * r}</p>
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<Lingkaran />);
+  </script>
+</body>
+</html>
