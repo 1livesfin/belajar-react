@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Geometri Trapesium</title>
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    function Trapesium() {
+      const [a, setA] = React.useState(0);
+      const [b, setB] = React.useState(0);
+      const [t, setT] = React.useState(0);
+
+      return (
+        <div>
+          <h2>Luas Trapesium</h2>
+          <input placeholder="Sisi A" type="number" onChange={e => setA(e.target.value)} />
+          <input placeholder="Sisi B" type="number" onChange={e => setB(e.target.value)} />
+          <input placeholder="Tinggi" type="number" onChange={e => setT(e.target.value)} />
+          <p>Hasil: {0.5 * (Number(a) + Number(b)) * t}</p>
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<Trapesium />);
+  </script>
+</body>
+</html>
