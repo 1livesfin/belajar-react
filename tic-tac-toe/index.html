@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Tic Tac Toe</title>
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    button { width:60px; height:60px; font-size:24px; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    function TicTacToe() {
+      const [board, setBoard] = React.useState(Array(9).fill(null));
+      const [xTurn, setXTurn] = React.useState(true);
+
+      function click(i) {
+        if (board[i]) return;
+        const newBoard = [...board];
+        newBoard[i] = xTurn ? "X" : "O";
+        setBoard(newBoard);
+        setXTurn(!xTurn);
+      }
+
+      return (
+        <div>
+          <h2>Tic Tac Toe</h2>
+          {board.map((v, i) => (
+            <button key={i} onClick={() => click(i)}>{v}</button>
+          ))}
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('root')).render(<TicTacToe />);
+  </script>
+</body>
+</html>
